@@ -1,0 +1,40 @@
+body {
+    background-color: #772c6b
+    font-family: Arial;
+    color: #2e4208;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #9c328a;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+}
+
+main, .formulario {
+    margin: 20px;
+}
+
+h2 {
+    color: #b7b8ee;
+}
+
+img {
+    width: 350px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #b1b2e5;
+    color: white;
+}
