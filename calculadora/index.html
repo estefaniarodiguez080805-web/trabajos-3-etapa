@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Inversión de Tiempo</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Calculadora de Inversión de Tiempo</h1>
+
+        <form id="formTiempo">
+            <label for="tiempo">Tiempo disponible para trabajar (horas):</label>
+            <input type="number" id="tiempo" required>
+
+            <label for="ganancia"> Tasa de ganancia (minutos por hora de trabajo):</label>
+            <input type="number" id="ganancia" required>
+
+            <label for="costo">Costo de vida diario (horas):</label>
+            <input type="number" id="costo" required>
+
+            <button type="button" onclick="calcular()">Calcular</button>
+        </form>
+
+        <div id="resultado"></div>
+
+        <h2>Simulación de tiempo acumulado</h2>
+        <button onclick="simularSemana()">Simular Semana</button>
+        <button onclick="simularMes()">Simular Mes</button>
+        <div id="simulacion"></div>
+
+        <footer>
+            <p><strong>Ficha de identificación:</strong></p>
+            <p>Nombre: Alexa Estefanía Garcia Rodríguez<br>
+               Materia:a25. M2.sm1. Emplea frameworks<br>
+               Actividad: Calculadora de Inversión de Tiempo<br>
+               Fecha: 13/11/2025</p>
+        </footer>
+    </div>
+
+    <script>
+        let saldo = 0;
+
+        function calcular() {
+            const tiempo = parseFloat(document.getElementById("tiempo").value);
+            const ganancia = parseFloat(document.getElementById("ganancia").value);
+            const costo = parseFloat(document.getElementById("costo").value);
+
+            if (isNaN(tiempo) || isNaN(ganancia) || isNaN(costo)) {
+                document.getElementById("resultado").innerHTML = "Por favor, completa todos los campos.";
+                return;
+            }
+
+            const tiempoGanado = tiempo * (ganancia / 60); // convierte minutos a horas
+            const tiempoNeto = tiempoGanado - costo;
+            saldo = tiempoNeto;
+
+            let mensaje = "";
+            if (tiempoNeto > 0) {
+                mensaje = ` Ganaste ${tiempoNeto.toFixed(2)} horas netas hoy.`;
+            } else if (tiempoNeto < 0) {
+                mensaje = ` Perdiste ${Math.abs(tiempoNeto).toFixed(2)} horas hoy.`;
+            } else {
+                mensaje = " No ganaste ni perdiste tiempo hoy.";
+            }
+
+            document.getElementById("resultado").innerHTML = mensaje;
+        }
+
+        function simularSemana() {
+            let saldoSemanal = saldo * 7;
+            mostrarSimulacion(saldoSemanal, "semana");
+        }
+
+        function simularMes() {
+            let saldoMensual = saldo * 30;
+            mostrarSimulacion(saldoMensual, "mes");
+        }
+
+        function mostrarSimulacion(saldoFinal, periodo) {
+            let mensaje = "";
+            if (saldoFinal > 0) {
+                mensaje = ` En una ${periodo}, acumularías ${saldoFinal.toFixed(2)} horas. ¡Vas bien!`;
+            } else if (saldoFinal < 0) {
+                mensaje = ` En una ${periodo}, perderías ${Math.abs(saldoFinal).toFixed(2)} horas. Cuida tu tiempo.`;
+            } else {
+                mensaje = `En una ${periodo}, tu saldo de tiempo se mantiene igual.`;
+            }
+
+            document.getElementById("simulacion").innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

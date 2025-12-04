@@ -1,0 +1,63 @@
+body {
+    background-color: #efeaf1;
+    font-family: Arial, sans-serif;
+    color: #181616;
+    text-align: center;
+    padding: 20px;
+}
+
+.contenedor {
+    background: rgb(111, 62, 167);
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(89, 58, 90, 0.1);
+}
+
+h1 {
+    color: #1a1c1d;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #df3d3d;
+}
+
+button {
+    background-color: #0f0f0f;
+    color: rgb(197, 72, 72);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #ee0cee;
+}
+
+#resultado, #simulacion {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+footer {
+    margin-top: 25px;
+    background-color: #754292;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
